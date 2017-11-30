@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backend_address: 'http://localhost:8080'
+  backend_address: 'https://pure-sea-93753.herokuapp.com'
 };
