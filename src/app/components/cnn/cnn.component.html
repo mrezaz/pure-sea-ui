@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form [formGroup]="cnnForm" novalidate fxFlex="400px">
+    <mat-form-field>
+      <input matInput placeholder="Enter Search Phrase" formControlName="keyword">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="search()">Search</button>
+  </form>
+</div>
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around top">
+  <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxLayout="row" fxLayoutAlign="center top" fxLayoutWrap *ngFor="let article of articles">
+    <mat-card fxFlex="250px" fxFlex.lt-sm="100%">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar-image"></div>
+        <mat-card-title>{{ article.author }}</mat-card-title>
+        <mat-card-subtitle>{{ article.title }}</mat-card-subtitle>
+      </mat-card-header>
+      <img *ngIf="article.urlToImage" mat-card-image [src]="article.urlToImage">
+      <mat-card-content>
+        <p>
+          {{ article.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button [href]="article.url" target="_blank">View</a>
+      </mat-card-actions>
+    </mat-card>
+    <div fxFlex="100%">&nbsp;</div>
+  </div>
+</div>
