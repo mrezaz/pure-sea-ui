@@ -22,7 +22,6 @@ export class CnnComponent {
     const value = this.cnnForm.controls['keyword'].value;
     this.cnnService.search(value).subscribe((result) => {
       this.articles = result as any[];
-      console.log(this.articles);
     });
   }
 }

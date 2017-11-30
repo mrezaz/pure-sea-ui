@@ -22,7 +22,6 @@ export class TwitterComponent {
     const value = this.twitterForm.controls['displayName'].value;
     this.twitterService.fetch(value).subscribe((result) => {
       this.tweets = result as any[];
-      console.log(this.tweets);
     });
   }
 }
