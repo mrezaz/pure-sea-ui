@@ -11,7 +11,7 @@ import { TwitterService } from '../../services/twitter.service';
 export class TwitterComponent {
   public tweets = [];
   public twitterForm = new FormGroup({
-    displayName: new FormControl('realdonaltrump')
+    displayName: new FormControl('realdonaldtrump')
   });
 
   constructor(
