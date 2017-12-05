@@ -10,6 +10,7 @@ import { CnnService } from '../../services/cnn.service';
 })
 export class CnnComponent {
   public articles = [];
+  public loading = false;
 
   constructor(
     private cnnService: CnnService
@@ -19,9 +20,11 @@ export class CnnComponent {
   });
 
   public search() {
+    this.loading = true;
     const value = this.cnnForm.controls['keyword'].value;
     this.cnnService.search(value).subscribe((result) => {
       this.articles = result as any[];
+      this.loading = false;
     });
   }
 }

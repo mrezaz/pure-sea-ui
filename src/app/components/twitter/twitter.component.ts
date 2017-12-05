@@ -10,6 +10,7 @@ import { TwitterService } from '../../services/twitter.service';
 })
 export class TwitterComponent {
   public tweets = [];
+  public loading = false;
   public twitterForm = new FormGroup({
     displayName: new FormControl('realdonaldtrump')
   });
@@ -20,8 +21,10 @@ export class TwitterComponent {
 
   public fetch() {
     const value = this.twitterForm.controls['displayName'].value;
+    this.loading = true;
     this.twitterService.fetch(value).subscribe((result) => {
       this.tweets = result as any[];
+      this.loading = false;
     });
   }
 }

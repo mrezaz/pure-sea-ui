@@ -6,6 +6,9 @@
     <button mat-button color="primary" (click)="search()">Search</button>
   </form>
 </div>
+<div *ngIf="loading" fxLayout="row" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</div>
 <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around top">
   <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxLayout="row" fxLayoutAlign="center top" fxLayoutWrap *ngFor="let article of articles">
     <mat-card fxFlex="250px" fxFlex.lt-sm="100%">
